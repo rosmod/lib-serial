@@ -15,7 +15,7 @@ endif()
 
 include_directories(include)
 add_library(serial
-	    src/dynamixel/SerialPort.cpp)
+	    src/serial/SerialPort.cpp)
 
 
 
