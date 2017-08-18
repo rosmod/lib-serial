@@ -25,6 +25,15 @@ class SerialPort {
   int sendArray(unsigned char *buffer, int len);
   int sendString(std::string msg);
   int getArray (unsigned char *buffer, int len);
+
+  void flushPort(boost::asio::serial_port& serial_port, flush_type what);
+
+  enum flush_type
+  {
+    flush_receive = TCIFLUSH,
+    flush_send = TCIOFLUSH,
+    flush_both = TCIOFLUSH
+  };
 };
 
 

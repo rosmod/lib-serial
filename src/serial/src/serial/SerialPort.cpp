@@ -4,6 +4,7 @@
 #include "serial/SerialPort.h"
 
 
+
 SerialPort::SerialPort() {
   port = new boost::asio::serial_port(io);
 }
@@ -37,5 +38,11 @@ int SerialPort::getArray (unsigned char *buffer, int len){
     buffer[i++] = rcvChar;
   return i;
 }
+
+void SerialPort::flushPort(boost::asio::serial_port& serial_port, flush_type what)
+{
+  ::tcflush(serial_port.lowest_layer().native_handle(), what);
+}
+
 
 
