@@ -5,13 +5,12 @@
 #include <termios.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <string>
 
 #include <boost/asio/serial_port.hpp> 
 #include <boost/asio.hpp>
 #include <boost/asio/deadline_timer.hpp> 
 #include <boost/bind.hpp>
- 
-const int blockTimeMS = 10;
  
 class SerialPort {
  private:
@@ -20,13 +19,14 @@ class SerialPort {
  public:
     SerialPort();
   
-  int connect ();
-  int connect (char * device, int baud);
+  int connect (std::string device, int baud);
   void disconnect(void);
 
   int sendArray(unsigned char *buffer, int len);
+  int sendString(std::string msg);
   int getArray (unsigned char *buffer, int len);
 };
+
 
 
 #endif /* SERIALPORT_H_ */

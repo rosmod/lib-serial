@@ -1,6 +1,13 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(serial)
 
+find_package(catkin REQUIRED COMPONENTS)
+
+catkin_package(
+	INCLUDE_DIRS include
+	LIBRARIES serial
+)
+
 ## Check C++11 / C++0x
 include(CheckCXXCompilerFlag)
 CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
