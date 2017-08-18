@@ -20,7 +20,7 @@ void SerialPort::disconnect(void){
   port->close();
 }
 
-int SerialPort::sendArray(unsigned char *buffer, int len) {
+int SerialPort::sendArray(char *buffer, int len) {
   int n = boost::asio::write( *port,
                              boost::asio::buffer(buffer,len));
   return n;
@@ -28,10 +28,10 @@ int SerialPort::sendArray(unsigned char *buffer, int len) {
 
 int SerialPort::sendString(std::string msg){
   std::string tmp = msg + "\n";
-  SerialPort::sendArray((unsigned char *) tmp.c_str(), tmp.length()); 
+  SerialPort::sendArray((char *) tmp.c_str(), tmp.length()); 
 }
 
-int SerialPort::getArray (unsigned char *buffer, int len){
+int SerialPort::getArray (char *buffer, int len){
   char rcvChar;
   int i = 0;
   while ( i < len && boost::asio::read( *port, boost::asio::buffer(&rcvChar,1) ) == 1 )
@@ -41,7 +41,7 @@ int SerialPort::getArray (unsigned char *buffer, int len){
 
 void SerialPort::flushPort(flush_type what)
 {
-  ::tcflush(this.lowest_layer().native_handle(), what);
+  ::tcflush(this->port->lowest_layer().native_handle(), what);
 }
 
 

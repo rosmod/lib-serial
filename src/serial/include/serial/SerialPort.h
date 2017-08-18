@@ -22,11 +22,9 @@ class SerialPort {
   int connect (std::string device, int baud);
   void disconnect(void);
 
-  int sendArray(unsigned char *buffer, int len);
+  int sendArray(char *buffer, int len);
   int sendString(std::string msg);
-  int getArray (unsigned char *buffer, int len);
-
-  void flushPort(flush_type what);
+  int getArray (char *buffer, int len);
 
   enum flush_type
   {
@@ -34,6 +32,10 @@ class SerialPort {
     flush_send = TCIOFLUSH,
     flush_both = TCIOFLUSH
   };
+
+  void flushPort(flush_type what);
+
+  
 };
 
 
