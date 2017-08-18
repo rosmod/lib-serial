@@ -39,9 +39,9 @@ int SerialPort::getArray (unsigned char *buffer, int len){
   return i;
 }
 
-void SerialPort::flushPort(boost::asio::serial_port& serial_port, flush_type what)
+void SerialPort::flushPort(flush_type what)
 {
-  ::tcflush(serial_port.lowest_layer().native_handle(), what);
+  ::tcflush(this.lowest_layer().native_handle(), what);
 }
 
 
