@@ -22,7 +22,8 @@ endif()
 
 include_directories(include)
 add_library(serial
-	    src/serial/SerialPort.cpp)
+  src/serial/SerialPort.cpp
+  src/serial/SerialPortBlocking.cpp)
 
 
 install(DIRECTORY include/${PROJECT_NAME}/ DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION} FILES_MATCHING PATTERN "*.h" )
