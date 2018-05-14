@@ -1,8 +1,8 @@
 #include <string.h>
 #include <sys/ioctl.h>
 
-#include "smc/SerialPortBlocking.h"
-#include "smc/blocking_reader.h"
+#include "serial/SerialPortBlocking.h"
+#include "serial/blocking_reader.h"
 
 
 

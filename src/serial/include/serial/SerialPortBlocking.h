@@ -12,7 +12,7 @@
 #include <boost/asio/deadline_timer.hpp> 
 #include <boost/bind.hpp>
 
-#include "smc/blocking_reader.h"
+#include "serial/blocking_reader.h"
  
 class SerialPortBlocking {
  private:
